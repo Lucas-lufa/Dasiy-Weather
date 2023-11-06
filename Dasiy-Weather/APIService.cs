@@ -19,7 +19,7 @@ namespace Dasiy_Weather
         {
 
         }
-        internal class Location
+        public class Location
         {
             public string name { get; set; }
             public float lat { get; set; }
