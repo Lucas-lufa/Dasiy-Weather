@@ -11,6 +11,12 @@ namespace Dasiy_Weather
 {
     // string baseAPI, string geoPart, string city, string limit, string APIKeyPart
 
+    // https://api.openweathermap.org/data/2.5/weather?lat={lat}&lon={lon}&appid={API key}
+
+    // https://api.openweathermap.org/data/2.5/weather?lat=-31.9558964&lon=115.8605801&units=metric&appid=3114e2f726350fe2d43b0c6913e03751
+
+    // "lat": -31.9558964, "lon": 115.8605801,
+
     // http://api.openweathermap.org/geo/1.0/direct?q=Perth&limit=5&appid=3114e2f726350fe2d43b0c6913e03751
 
     internal class APIService

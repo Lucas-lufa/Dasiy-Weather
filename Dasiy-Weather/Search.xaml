@@ -20,6 +20,7 @@
         <ListView 
             
             x:Name="locationList"
+            ItemSelected="locationList_ItemSelected"
             />
     </VerticalStackLayout>
 </ContentPage>
