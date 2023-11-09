@@ -10,9 +10,8 @@ public partial class Search : ContentPage
 
 	private async void getCity_Clicked(object sender, EventArgs e)
     {
-        APIService service = new();
         string city = locationSearch.Text;
-        List<APIService.Location> locations = await service.GetLocation(city);
+        List<APIService.Location> locations = await APIService.GetLocation(city);
         locationList.ItemsSource = locations;
         
         
@@ -20,11 +19,13 @@ public partial class Search : ContentPage
 
     }
 
-    private void locationList_ItemSelected(object sender, SelectedItemChangedEventArgs e)
+    private async void locationList_ItemSelected(object sender, SelectedItemChangedEventArgs e)
     {
         APIService.Location location = (APIService.Location)locationList.SelectedItem;
-        string lat = location.lat.ToString();
-        string lon = location.lon.ToString();
+        
+        
+        LocationWeather locationWeather = await APIService.GetLocationWeather(location);
 
+        locationSearch.Text = locationWeather.main.ToString();
     }
 }
