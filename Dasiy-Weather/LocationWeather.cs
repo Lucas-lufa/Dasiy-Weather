@@ -10,7 +10,6 @@ namespace Dasiy_Weather
     internal class LocationWeather
     {
 
-       
             public Coord coord { get; set; }
             public Weather[] weather { get; set; }
             public string _base { get; set; }
@@ -43,7 +42,10 @@ namespace Dasiy_Weather
 
             public override string ToString()
             {
-                return String.Format($"{temp} {feels_like}");
+                return String.Format($" Tempture: {temp}, Feels Like: {feels_like}, Min: {temp_min}, Max: {temp_max}");
+
+                
+                //[$"{temp}", $"{feels_like}", $"{temp_min}", $"{temp_max}"]
             }
 
         }
@@ -76,6 +78,12 @@ namespace Dasiy_Weather
             public string icon { get; set; }
         }
 
+        public override string ToString()
+        {
+            return String.Format($"{name} {sys.country}, Tempture: {main.temp}, Feels Like: {main.feels_like}, Min: {main.temp_min}, Max: {main.temp_max}");
 
+
+            //[$"{temp}", $"{feels_like}", $"{temp_min}", $"{temp_max}"]
+        }
     }
 }

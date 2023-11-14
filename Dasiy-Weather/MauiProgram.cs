@@ -6,7 +6,6 @@ public static class MauiProgram
 {
 	public static MauiApp CreateMauiApp()
 	{
-		//LocationWeather locationWeather = new LocationWeather();
 		var builder = MauiApp.CreateBuilder();
 		builder
 			.UseMauiApp<App>()

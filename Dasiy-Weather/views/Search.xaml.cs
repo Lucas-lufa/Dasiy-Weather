@@ -5,6 +5,7 @@ public partial class Search : ContentPage
 	public Search()
 	{
 		InitializeComponent();
+        LocationWeather locationWeather = new LocationWeather();
         
     }
 
@@ -26,6 +27,7 @@ public partial class Search : ContentPage
         
         LocationWeather locationWeather = await APIService.GetLocationWeather(location);
 
-        locationSearch.Text = locationWeather.main.ToString();
+        //locationSearch.Text
+        locationList.ItemsSource = locationWeather.ToString().Split(',').ToList();
     }
 }
