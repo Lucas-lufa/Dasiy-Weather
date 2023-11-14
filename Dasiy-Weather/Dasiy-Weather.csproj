@@ -54,7 +54,7 @@
 	</ItemGroup>
 
 	<ItemGroup>
-	  <MauiXaml Update="Search.xaml">
+	  <MauiXaml Update="views\Search.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
 	  <MauiXaml Update="views\Home.xaml">

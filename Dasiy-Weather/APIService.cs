@@ -36,7 +36,6 @@ namespace Dasiy_Weather
                 return String.Format($"{name} {state} {country}");
             }
 
-
         }
        
         public APIService() { }
@@ -56,8 +55,7 @@ namespace Dasiy_Weather
 
         public static async Task<LocationWeather> GetLocationWeather (Location location)
         {
-            string url = $"https://api.openweathermap.org/data/2.5/weather?lat={location.lat}&lon={location.lon}&units=metric&appid={APIKeyPart}";
-             
+            string url = $"https://api.openweathermap.org/data/2.5/weather?lat={location.lat}&lon={location.lon}&units=metric&appid={APIKeyPart}";             
 
             string responceString = await getResponce(url);
             await Console.Out.WriteLineAsync(responceString);
