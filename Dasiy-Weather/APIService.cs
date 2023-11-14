@@ -46,7 +46,7 @@ namespace Dasiy_Weather
 
         static string weather = "data/2.5/weather?";
 
-        static string city = "";
+        public static string city = "";
 
         static string limit = "&limit=5";
 
@@ -71,7 +71,6 @@ namespace Dasiy_Weather
             await Console.Out.WriteLineAsync(responceString);
 
             return JsonConvert.DeserializeObject<List<Location>>(responceString);
-
 
         }
 
