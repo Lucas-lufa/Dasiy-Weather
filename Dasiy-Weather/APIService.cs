@@ -48,6 +48,10 @@ namespace Dasiy_Weather
 
         public static string city = "";
 
+        public static List<Location> savedLocations;
+
+        public static Location savedLocation;
+
         static string limit = "&limit=5";
 
         static string APIKeyPart = "3114e2f726350fe2d43b0c6913e03751";
