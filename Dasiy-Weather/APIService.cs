@@ -50,18 +50,16 @@ namespace Dasiy_Weather
 
         public static List<Location> savedLocations;
 
-        public static Location savedLocation;
+        public Location savedLocation;
 
         static string limit = "&limit=5";
 
         static string APIKeyPart = "3114e2f726350fe2d43b0c6913e03751";
 
 
-        public static async Task<LocationWeather> GetLocationWeather (Location location)
-        {
-            string url = $"https://api.openweathermap.org/data/2.5/weather?lat={location.lat}&lon={location.lon}&units=metric&appid={APIKeyPart}";             
-
-            string responceString = await getResponce(url);
+        public static async Task<LocationWeather> GetLocationWeather (string URL)
+        {                      
+            string responceString = await getResponce(URL);
             await Console.Out.WriteLineAsync(responceString);
 
             return JsonConvert.DeserializeObject<LocationWeather>(responceString);
@@ -78,6 +76,11 @@ namespace Dasiy_Weather
 
         }
 
+        public static string createURL(Location location)
+        {
+            return $"{baseAPI}{weather}lat={location.lat}&lon={location.lon}&units=metric&appid={APIKeyPart}";
+        }
+
         private static async Task<string> getResponce(string url) 
         {
             HttpClient client = new HttpClient();
@@ -86,6 +89,8 @@ namespace Dasiy_Weather
             HttpResponseMessage response = await client.SendAsync(request);
             return await response.Content.ReadAsStringAsync();
         }
+
+
 
     }
 }
