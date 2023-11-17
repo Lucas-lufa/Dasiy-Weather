@@ -40,24 +40,24 @@ namespace Dasiy_Weather
        
         public APIService() { }
 
-        static string baseAPI = "http://api.openweathermap.org/";
+        string baseAPI = "http://api.openweathermap.org/";
 
-        static string geoPart = "geo/1.0/direct?q=";
+        string geoPart = "geo/1.0/direct?q=";
 
-        static string weather = "data/2.5/weather?";
+        string weather = "data/2.5/weather?";
 
-        public static string city = "";
+        public string city = "";
 
-        public static List<Location> savedLocations;
+        public List<Location> savedLocations;
 
         public Location savedLocation;
 
-        static string limit = "&limit=5";
+        string limit = "&limit=5";
 
-        static string APIKeyPart = "3114e2f726350fe2d43b0c6913e03751";
+        string APIKeyPart = "3114e2f726350fe2d43b0c6913e03751";
 
 
-        public static async Task<LocationWeather> GetLocationWeather (string URL)
+        public async Task<LocationWeather> GetLocationWeather (string URL)
         {                      
             string responceString = await getResponce(URL);
             await Console.Out.WriteLineAsync(responceString);
@@ -65,23 +65,24 @@ namespace Dasiy_Weather
             return JsonConvert.DeserializeObject<LocationWeather>(responceString);
         }
 
-        public static async Task<List<Location>> GetLocation(string city)
+        public async Task<List<Location>> GetLocation(string city)
         {
-            string url = $"{baseAPI}{geoPart}{city}{limit}&appid={APIKeyPart}";
-
-            string responceString = await getResponce(url);
+            string responceString = await getResponce(createURL(city));
             await Console.Out.WriteLineAsync(responceString);
 
             return JsonConvert.DeserializeObject<List<Location>>(responceString);
-
         }
 
-        public static string createURL(Location location)
+        public string createURL(Location location)
         {
             return $"{baseAPI}{weather}lat={location.lat}&lon={location.lon}&units=metric&appid={APIKeyPart}";
         }
 
-        private static async Task<string> getResponce(string url) 
+        public string createURL(string city)
+        {
+            return $"{baseAPI}{geoPart}{city}{limit}&appid={APIKeyPart}";
+        }
+        private async Task<string> getResponce(string url) 
         {
             HttpClient client = new HttpClient();
             HttpRequestMessage request = new HttpRequestMessage(HttpMethod.Get, url);

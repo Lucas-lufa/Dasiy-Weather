@@ -12,11 +12,17 @@
             x:Name="locationSearch"
              Text="perth"          
             />
-        <Button
-            x:Name="getCity"
-            Clicked="getCity_Clicked"
-            />
-        
+        <HorizontalStackLayout>
+            <Button 
+                x:Name="savePrefrence"
+                Clicked="savePrefrence_Clicked"
+                />
+            <Button
+                x:Name="getCity"
+                Clicked="getCity_Clicked"
+                />
+
+        </HorizontalStackLayout>
         <ListView 
             
             x:Name="locationList"
