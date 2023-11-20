@@ -5,8 +5,14 @@
              Title="Settings">
     <VerticalStackLayout>
         <Label 
-            Text="Welcome to .NET MAUI!"
+            Text=""
+            x:Name="whatsInPreference"
             VerticalOptions="Center" 
             HorizontalOptions="Center" />
+        <Button
+            Text="Clear"
+            x:Name="Clear"
+            Clicked="Clear_Clicked"
+            />
     </VerticalStackLayout>
 </ContentPage>

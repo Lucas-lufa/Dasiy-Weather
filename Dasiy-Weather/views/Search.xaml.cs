@@ -3,6 +3,7 @@ namespace Dasiy_Weather.views;
 public partial class Search : ContentPage
 {
     APIService service = new();
+    LocationWeather locationWeather = new();
     public Search()
 	{
 		InitializeComponent();
@@ -27,7 +28,7 @@ public partial class Search : ContentPage
             //APIService.Location savedLocation = location;
             service.savedLocation = location;
             string URL = service.createURL(location);
-        LocationWeather locationWeather = await service.GetLocationWeather(URL);
+        locationWeather = await service.GetLocationWeather(URL);
 
         //locationSearch.Text
         locationList.ItemsSource = locationWeather.ToString().Split(',').ToList();
@@ -47,6 +48,7 @@ public partial class Search : ContentPage
         else 
         {
             Preferences.Default.Set("fav", service.createURL(service.savedLocation));
+            Preferences.Default.Set("favName", $"{locationWeather.name} {locationWeather.sys.country}");
         }
 
     }

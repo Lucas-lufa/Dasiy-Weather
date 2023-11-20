@@ -24,7 +24,6 @@ public partial class Home : ContentPage
 
     private void changeScreen()
 	{
-        //	Application.Current.MainPage.Navigation.PushModalAsync(new SettingsPage(), true);
         Application.Current.MainPage.Navigation.PushModalAsync(new Search(), true);
         //https://jinoh.co/net-maui-adding-a-new-page-and-redirect/
     }
