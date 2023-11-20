@@ -2,7 +2,7 @@ namespace Dasiy_Weather.views;
 
 public partial class Search : ContentPage
 {
-    APIService service = new APIService();
+    APIService service = new();
     public Search()
 	{
 		InitializeComponent();
@@ -41,7 +41,9 @@ public partial class Search : ContentPage
     private void savePrefrence_Clicked(object sender, EventArgs e)
     {
         if (service.savedLocation == null) 
-        { return; }
+        { 
+            return; 
+        }
         else 
         {
             Preferences.Default.Set("fav", service.createURL(service.savedLocation));

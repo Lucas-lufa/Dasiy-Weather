@@ -4,11 +4,21 @@
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:local="clr-namespace:Dasiy_Weather.views"
-    Shell.FlyoutBehavior="Disabled">
+    Shell.FlyoutBehavior="Flyout">
 
     <ShellContent
         Title="Home"
-        ContentTemplate="{DataTemplate local:Search}"
-        Route="Search" />
+        ContentTemplate="{DataTemplate local:Home}"
+        Route="Home" />
+
+    <ShellContent
+    Title="Search"
+    ContentTemplate="{DataTemplate local:Search}"
+    Route="Search" />
+
+    <ShellContent
+    Title="Settings"
+    ContentTemplate="{DataTemplate local:Settings}"
+    Route="Settings" />
 
 </Shell>

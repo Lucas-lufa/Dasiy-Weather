@@ -15,10 +15,12 @@
         <HorizontalStackLayout>
             <Button 
                 x:Name="savePrefrence"
+                Text="Save"
                 Clicked="savePrefrence_Clicked"
                 />
             <Button
                 x:Name="getCity"
+                Text="Search"
                 Clicked="getCity_Clicked"
                 />
 
