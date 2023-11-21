@@ -9,7 +9,6 @@ public partial class Settings : ContentPage
 		InitializeComponent();
         service = ((App)Application.Current).Service;
         weatherdata = ((App)Application.Current).WeatherData;
-        updatePreferenceLable();
 	}
 
 	private void updatePreferenceLable()
@@ -21,5 +20,11 @@ public partial class Settings : ContentPage
 		Preferences.Clear();
 		updatePreferenceLable();
 		
+    }
+
+    protected override void OnAppearing()
+    {
+        //base.OnAppearing();
+        updatePreferenceLable();
     }
 }
