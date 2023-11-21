@@ -2,12 +2,13 @@ namespace Dasiy_Weather.views;
 
 public partial class Search : ContentPage
 {
-    APIService service = new();
-    LocationWeather locationWeather = new();
+    APIService service;
+    LocationWeather weatherdata;
     public Search()
 	{
 		InitializeComponent();
-
+        service = ((App)Application.Current).Service;
+        weatherdata = ((App)Application.Current).WeatherData;
     }
 
 	private async void getCity_Clicked(object sender, EventArgs e)
@@ -17,7 +18,6 @@ public partial class Search : ContentPage
         List<APIService.Location> locations = await service.GetLocation(service.city);
         service.savedLocations = locations;
         locationList.ItemsSource = locations;
-        
     }
 
     private async void locationList_ItemSelected(object sender, SelectedItemChangedEventArgs e)
@@ -28,10 +28,10 @@ public partial class Search : ContentPage
             //APIService.Location savedLocation = location;
             service.savedLocation = location;
             string URL = service.createURL(location);
-        locationWeather = await service.GetLocationWeather(URL);
+        weatherdata = await service.GetLocationWeather(URL);
 
         //locationSearch.Text
-        locationList.ItemsSource = locationWeather.ToString().Split(',').ToList();
+        locationList.ItemsSource = weatherdata.ToString().Split(',').ToList();
         }
         catch (Exception ex) 
         {
@@ -48,7 +48,7 @@ public partial class Search : ContentPage
         else 
         {
             Preferences.Default.Set("fav", service.createURL(service.savedLocation));
-            Preferences.Default.Set("favName", $"{locationWeather.name} {locationWeather.sys.country}");
+            Preferences.Default.Set("favName", $"{weatherdata.name} {weatherdata.sys.country}");
         }
 
     }

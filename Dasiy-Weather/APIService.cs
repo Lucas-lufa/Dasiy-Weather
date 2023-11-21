@@ -17,7 +17,7 @@ namespace Dasiy_Weather
 
     // https://api.openweathermap.org/data/2.5/weather?lat=-31.9558964&lon=115.8605801&units=metric&appid=3114e2f726350fe2d43b0c6913e03751
 
-    internal class APIService
+    public class APIService
     {
         public class Locations
         {

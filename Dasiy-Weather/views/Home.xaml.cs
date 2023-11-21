@@ -2,11 +2,15 @@ namespace Dasiy_Weather.views;
 
 public partial class Home : ContentPage
 {
-	APIService service = new APIService();
-	public Home()
+    APIService service;
+    LocationWeather weatherdata;
+    public Home()
 	{
 		InitializeComponent();
-		displayFav();
+        service = ((App)Application.Current).Service;
+        weatherdata = ((App)Application.Current).WeatherData;
+        displayFav();
+
     }
 
 	private async void displayFav()
@@ -17,8 +21,8 @@ public partial class Home : ContentPage
             changeScreen();
         }
         else { 
-        LocationWeather locationWeather = await service.GetLocationWeather(URL);
-		output.Text = locationWeather.ToString();
+        weatherdata = await service.GetLocationWeather(URL);
+		output.Text = weatherdata.ToString();
         }
     }
 
@@ -26,5 +30,10 @@ public partial class Home : ContentPage
 	{
         Application.Current.MainPage.Navigation.PushModalAsync(new Search(), true);
         //https://jinoh.co/net-maui-adding-a-new-page-and-redirect/
+    }
+
+    private void updateOutputText(string text)
+    {
+        output.Text = text;
     }
 }

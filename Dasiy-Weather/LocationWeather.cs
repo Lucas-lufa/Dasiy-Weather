@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Dasiy_Weather
 {
-    internal class LocationWeather
+    public class LocationWeather
     {
 
             public Coord coord { get; set; }
