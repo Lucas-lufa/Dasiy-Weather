@@ -9,7 +9,8 @@ public partial class Settings : ContentPage
 		InitializeComponent();
         service = ((App)Application.Current).Service;
         weatherdata = ((App)Application.Current).WeatherData;
-	}
+        metericORimperial.IsToggled = Preferences.Get("metericORimperial", false);
+    }
 
 	private void updatePreferenceLable()
 	{
@@ -17,14 +18,19 @@ public partial class Settings : ContentPage
 	}
     private void Clear_Clicked(object sender, EventArgs e)
     {
-		Preferences.Clear();
-		updatePreferenceLable();
-		
+		Preferences.Set("fav", null);
+        Preferences.Set("favName", null);
+		updatePreferenceLable();      
     }
 
     protected override void OnAppearing()
     {
         //base.OnAppearing();
         updatePreferenceLable();
+    }
+
+    private void Switch_Toggled(object sender, ToggledEventArgs e)
+    {
+        Preferences.Set("metericORimperial", metericORimperial.IsToggled);
     }
 }

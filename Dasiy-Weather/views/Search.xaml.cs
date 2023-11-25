@@ -9,6 +9,7 @@ public partial class Search : ContentPage
 		InitializeComponent();
         service = ((App)Application.Current).Service;
         weatherdata = ((App)Application.Current).WeatherData;
+        locationList.ItemsSource = " . . . . ".ToString().Split('.').ToList();
     }
 
 	private async void getCity_Clicked(object sender, EventArgs e)
@@ -47,9 +48,13 @@ public partial class Search : ContentPage
         }
         else 
         {
-            Preferences.Default.Set("fav", service.createURL(service.savedLocation));
-            Preferences.Default.Set("favName", $"{weatherdata.name} {weatherdata.sys.country}");
+            Preferences.Set("fav", service.createURL(service.savedLocation));
+            Preferences.Set("favName", $"{weatherdata.name} {weatherdata.sys.country}");
         }
+    }
 
+    protected override async void OnAppearing()
+    {
+        favWeather.Text = await service.displayFav(weatherdata);
     }
 }

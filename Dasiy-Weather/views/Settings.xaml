@@ -14,5 +14,15 @@
             x:Name="Clear"
             Clicked="Clear_Clicked"
             />
+        <HorizontalStackLayout>
+            <Label 
+                Text="Celsius or Fahrenheit"
+                />
+            <Switch 
+                IsToggled="False"
+                x:Name="metericORimperial"
+                Toggled="Switch_Toggled"
+                />
+        </HorizontalStackLayout>
     </VerticalStackLayout>
 </ContentPage>

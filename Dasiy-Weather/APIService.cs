@@ -54,6 +54,10 @@ namespace Dasiy_Weather
 
         string limit = "&limit=5";
 
+        string imperial = "imperial";
+
+        string metric = "metric";
+
         string APIKeyPart = "3114e2f726350fe2d43b0c6913e03751";
 
 
@@ -75,7 +79,14 @@ namespace Dasiy_Weather
 
         public string createURL(Location location)
         {
-            return $"{baseAPI}{weather}lat={location.lat}&lon={location.lon}&units=metric&appid={APIKeyPart}";
+            string metericORimperial = metric;
+
+            if (Preferences.Get("metericORimperial", false))
+            {
+                metericORimperial = imperial;
+            }
+
+            return $"{baseAPI}{weather}lat={location.lat}&lon={location.lon}&units={metericORimperial}&appid={APIKeyPart}";
         }
 
         public string createURL(string city)
@@ -91,6 +102,19 @@ namespace Dasiy_Weather
             return await response.Content.ReadAsStringAsync();
         }
 
+        public async Task<string> displayFav(LocationWeather weatherdata)
+        {
+            string URL = Preferences.Default.Get("fav", "");
+            if (URL == "")
+            {
+                return "Search and save to add a city to show the weather";
+            }
+            else
+            {
+                weatherdata = await GetLocationWeather(URL);
+                return weatherdata.ToString();
+            }
+        }
 
 
     }

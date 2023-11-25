@@ -10,12 +10,14 @@
         <Tab Title="Home" >
         <ShellContent
             Title="Home"
+            x:Name="homeItem"
             ContentTemplate="{DataTemplate local:Home}"
             Route="Home" />
         </Tab>
 
         <Tab Title="Search">
         <ShellContent
+            x:Name="search"
             Title="Search"
             ContentTemplate="{DataTemplate local:Search}"
             Route="Search" />
