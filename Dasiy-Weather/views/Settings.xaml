@@ -2,26 +2,43 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Dasiy_Weather.views.Settings"
-             Title="Settings">
+             Title="Settings"
+             Style="{DynamicResource PageStyle}"
+             >
     <VerticalStackLayout>
         <Label 
             Text=""
             x:Name="whatsInPreference"
             VerticalOptions="Center" 
-            HorizontalOptions="Center" />
+            HorizontalOptions="Center" 
+            Style="{DynamicResource LablePrimary}"
+            />
         <Button
             Text="Clear"
             x:Name="Clear"
             Clicked="Clear_Clicked"
+            
             />
         <HorizontalStackLayout>
             <Label 
                 Text="Celsius or Fahrenheit"
+                Style="{DynamicResource LablePrimary}"
                 />
             <Switch 
                 IsToggled="False"
                 x:Name="metericORimperial"
                 Toggled="Switch_Toggled"
+                />
+        </HorizontalStackLayout>
+        <HorizontalStackLayout>
+            <Label
+                Text="Light or Dark mode."
+                Style="{DynamicResource LablePrimary}"
+                />
+            <Switch
+                IsToggled="False"
+                x:Name="lightORdark"
+                Toggled="lightORdark_Toggled"
                 />
         </HorizontalStackLayout>
     </VerticalStackLayout>

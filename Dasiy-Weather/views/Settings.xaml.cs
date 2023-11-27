@@ -10,6 +10,7 @@ public partial class Settings : ContentPage
         service = ((App)Application.Current).Service;
         weatherdata = ((App)Application.Current).WeatherData;
         metericORimperial.IsToggled = Preferences.Get("metericORimperial", false);
+        lightORdark.IsToggled = Preferences.Get("lightORdark", false);
     }
 
 	private void updatePreferenceLable()
@@ -32,5 +33,12 @@ public partial class Settings : ContentPage
     private void Switch_Toggled(object sender, ToggledEventArgs e)
     {
         Preferences.Set("metericORimperial", metericORimperial.IsToggled);
+    }
+
+    private void lightORdark_Toggled(object sender, ToggledEventArgs e)
+    {
+        Preferences.Set("lightORdark", lightORdark.IsToggled);
+        Application.Current.Resources.MergedDictionaries.Clear();
+        service.lightORdark();
     }
 }

@@ -6,6 +6,8 @@ using System.Threading.Tasks;
 using System.Text.Json;
 using System.Text.Json.Serialization;
 using Newtonsoft.Json;
+using Dasiy_Weather.Themes;
+
 
 namespace Dasiy_Weather
 {
@@ -113,6 +115,18 @@ namespace Dasiy_Weather
             {
                 weatherdata = await GetLocationWeather(URL);
                 return weatherdata.ToString();
+            }
+        }
+
+        public void lightORdark()
+        {
+            if (Preferences.Get("lightORdark", false))
+            {
+                Application.Current.Resources.MergedDictionaries.Add(new dark());
+            }
+            else
+            {
+                Application.Current.Resources.MergedDictionaries.Add(new light());
             }
         }
 

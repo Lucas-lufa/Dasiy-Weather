@@ -2,16 +2,21 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Dasiy_Weather.views.Search"
-             Title="Search">
+             Title="Search"
+             Style="{DynamicResource PageStyle}"
+             >
     <VerticalStackLayout>
         
         <Label 
             Text=""
             VerticalOptions="Center" 
-            HorizontalOptions="Center" />
+            HorizontalOptions="Center" 
+            Style="{DynamicResource LablePrimary}"
+            />
         <Entry
             x:Name="locationSearch"
-             Text="perth"          
+             Text="perth"
+            Style="{DynamicResource EntryPrimary}"
             />
         <HorizontalStackLayout>
             <Button 
@@ -26,14 +31,17 @@
                 />
 
         </HorizontalStackLayout>
-        <ListView 
-            
+        <ListView             
             x:Name="locationList"
             ItemSelected="locationList_ItemSelected"
+            BackgroundColor="{DynamicResource ColourSecondary}"
             />
+
+
         <Label 
             Text=""
             x:Name="favWeather"
+            Style="{DynamicResource LablePrimary}"
             />
     </VerticalStackLayout>
 </ContentPage>
