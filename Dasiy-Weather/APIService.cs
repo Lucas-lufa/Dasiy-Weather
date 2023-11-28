@@ -50,10 +50,6 @@ namespace Dasiy_Weather
 
         public string city = "";
 
-        public List<Location> savedLocations;
-
-        public Location savedLocation;
-
         string limit = "&limit=5";
 
         string imperial = "imperial";
@@ -62,6 +58,11 @@ namespace Dasiy_Weather
 
         string APIKeyPart = "3114e2f726350fe2d43b0c6913e03751";
 
+        public List<Location> savedLocations;
+
+        public Location savedLocation;
+
+        public LocationWeather savedWeather;
 
         public async Task<LocationWeather> GetLocationWeather (string URL)
         {                      
@@ -104,7 +105,7 @@ namespace Dasiy_Weather
             return await response.Content.ReadAsStringAsync();
         }
 
-        public async Task<string> displayFav(LocationWeather weatherdata)
+        public async Task<string> displayFav()
         {
             string URL = Preferences.Default.Get("fav", "");
             if (URL == "")
@@ -113,8 +114,8 @@ namespace Dasiy_Weather
             }
             else
             {
-                weatherdata = await GetLocationWeather(URL);
-                return weatherdata.ToString();
+                savedWeather = await GetLocationWeather(URL);
+                return savedWeather.ToString();
             }
         }
 

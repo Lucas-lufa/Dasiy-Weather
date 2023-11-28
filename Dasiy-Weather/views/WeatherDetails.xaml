@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Dasiy_Weather.views.WeatherDetails"
+             Title="WeatherDetails">
+    <VerticalStackLayout>
+        <Label 
+            x:Name="detailCityName"
+            Text=""
+            VerticalOptions="Center" 
+            HorizontalOptions="Center" />
+
+        <Label
+            x:Name="temp"
+            Text=""
+            VerticalOptions="Center" 
+            HorizontalOptions="Center"
+            />
+
+        <Label
+            x:Name="feels_like"
+            Text=""
+            VerticalOptions="Center" 
+            HorizontalOptions="Center"
+            />
+
+        <Label
+            x:Name="temp_min"
+            Text=""
+            VerticalOptions="Center" 
+            HorizontalOptions="Center"
+            />
+
+        <Label
+            x:Name="temp_max"
+            Text=""
+            VerticalOptions="Center" 
+            HorizontalOptions="Center"
+            />
+
+        <Label
+            x:Name="pressure"
+            Text=""
+            VerticalOptions="Center" 
+            HorizontalOptions="Center"
+            />
+
+        <Label
+            x:Name="humidity"
+            Text=""
+            VerticalOptions="Center" 
+            HorizontalOptions="Center"
+            />
+
+        <Button 
+            Text="close"
+            Clicked="Button_Clicked"
+            />
+    </VerticalStackLayout>
+
+</ContentPage>

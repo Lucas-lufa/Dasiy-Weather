@@ -29,6 +29,11 @@
                 Text="Search"
                 Clicked="getCity_Clicked"
                 />
+            <Button
+                x:Name="weatherDetails"
+                Text="Weather Details"
+                Clicked="weatherDetails_Clicked"
+                />
 
         </HorizontalStackLayout>
         <ListView             
@@ -36,15 +41,15 @@
             ItemSelected="locationList_ItemSelected"
             BackgroundColor="{DynamicResource ColourSecondary}"
             >
-            <ListView.ItemTemplate>
+            <!--<ListView.ItemTemplate>
                 <DataTemplate>
                     <ViewCell>
                         <Label
-                            
+                            Style="{DynamicResource LablePrimary}"
                             />
                     </ViewCell>
                 </DataTemplate>
-            </ListView.ItemTemplate>
+            </ListView.ItemTemplate>-->
         </ListView>
 
 

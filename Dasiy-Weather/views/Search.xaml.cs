@@ -55,6 +55,16 @@ public partial class Search : ContentPage
 
     protected override async void OnAppearing()
     {
-        favWeather.Text = await service.displayFav(weatherdata);
+        favWeather.Text = await service.displayFav();
     }
+
+    private async void weatherDetails_Clicked(object sender, EventArgs e)
+    {
+        //Application.Current.MainPage.Navigation.PushModalAsync(new WeatherDetails(), true);
+
+        WeatherDetails weatherdetails = new WeatherDetails();
+        await Navigation.PushModalAsync(weatherdetails);
+    }
+
+    
 }
