@@ -9,6 +9,7 @@
 
     <Style x:Key="LablePrimary" TargetType="Label" >
         <Setter x:Name="TextColourPrimary" Property="TextColor" Value="Black" />
+        <Setter Property="FontAttributes" Value="Bold" />
     </Style>
 
     <Style x:Key="EntryPrimary" TargetType="Entry">

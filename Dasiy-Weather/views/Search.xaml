@@ -35,7 +35,17 @@
             x:Name="locationList"
             ItemSelected="locationList_ItemSelected"
             BackgroundColor="{DynamicResource ColourSecondary}"
-            />
+            >
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <Label
+                            
+                            />
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
 
 
         <Label 
