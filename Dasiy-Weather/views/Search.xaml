@@ -52,11 +52,15 @@
             </ListView.ItemTemplate>-->
         </ListView>
 
-
         <Label 
             Text=""
             x:Name="favWeather"
             Style="{DynamicResource LablePrimary}"
+            />
+
+        <Image
+            x:Name="searchIcon"
+            Source="https://openweathermap.org/img/wn/10d@2x.png"
             />
     </VerticalStackLayout>
 </ContentPage>

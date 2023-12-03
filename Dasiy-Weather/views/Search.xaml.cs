@@ -55,7 +55,10 @@ public partial class Search : ContentPage
 
     protected override async void OnAppearing()
     {
-        favWeather.Text = await service.displayFav();
+        string favorWeather = await service.displayFav();
+        favWeather.Text = $"{service.savedWeather.name} {service.savedWeather.sys.country} \n{favorWeather}";
+        searchIcon.Source = service.IconAPICall;
+
     }
 
     private async void weatherDetails_Clicked(object sender, EventArgs e)
@@ -64,6 +67,7 @@ public partial class Search : ContentPage
 
         WeatherDetails weatherdetails = new WeatherDetails();
         await Navigation.PushModalAsync(weatherdetails);
+       
     }
 
     

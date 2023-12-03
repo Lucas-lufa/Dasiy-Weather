@@ -7,11 +7,69 @@
              >
     <VerticalStackLayout>
         <Label 
-            x:Name="output"
+            x:Name="outputCity"
             Text=""
             VerticalOptions="Center" 
             HorizontalOptions="Center" 
             Style="{DynamicResource LablePrimary}"
             />
+
+            <Label 
+        x:Name="output"
+        Text=""
+        VerticalOptions="Center" 
+        HorizontalOptions="Center" 
+        Style="{DynamicResource LablePrimary}"
+        />
+
+        <HorizontalStackLayout
+            x:Name="tempDisplay"
+            WidthRequest="200"
+            BackgroundColor="AliceBlue"
+            >
+            <Label WidthRequest="1"
+                   x:Name="min"
+                   />
+
+            <Label Text="V"
+                   WidthRequest="5"
+                   BackgroundColor="Aqua"
+                   />
+            <Label WidthRequest="1"
+                   x:Name="temp"
+                   />
+
+            <Label Text="temp"
+                   WidthRequest="5"
+                   BackgroundColor="DarkMagenta"
+                   />
+            <Label WidthRequest="1"
+                   x:Name="max"
+                   />
+
+            <Label Text="^"
+                   WidthRequest="5"
+                   BackgroundColor="Coral"
+                   />
+
+
+        </HorizontalStackLayout>
+
+        <ContentPage>
+            <StackLayout>
+                <Grid x:Name="TemperatureGrid">
+
+                </Grid>
+            </StackLayout>
+        </ContentPage>
+
+        <Image
+            x:Name="homeIcon"
+            Source="https://openweathermap.org/img/wn/10d@2x.png"
+            />
+        
+        
+            
+            
     </VerticalStackLayout>
 </ContentPage>

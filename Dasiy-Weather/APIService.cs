@@ -7,9 +7,9 @@ using System.Text.Json;
 using System.Text.Json.Serialization;
 using Newtonsoft.Json;
 using Dasiy_Weather.Themes;
+using System.ComponentModel;
 
-
-namespace Dasiy_Weather
+namespace Dasiy_Weather 
 {
     // string baseAPI, string geoPart, string city, string limit, string APIKeyPart
 
@@ -19,7 +19,9 @@ namespace Dasiy_Weather
 
     // https://api.openweathermap.org/data/2.5/weather?lat=-31.9558964&lon=115.8605801&units=metric&appid=3114e2f726350fe2d43b0c6913e03751
 
-    public class APIService
+
+    //https://openweathermap.org/img/wn/10d@2x.png
+    public class APIService 
     {
         public class Locations
         {
@@ -58,6 +60,10 @@ namespace Dasiy_Weather
 
         string APIKeyPart = "3114e2f726350fe2d43b0c6913e03751";
 
+        string iconAPIcall = "https://openweathermap.org/img/wn/10d@2x.png";
+
+        public string IconAPICall { get => iconAPIcall; set { } }
+
         public List<Location> savedLocations;
 
         public Location savedLocation;
@@ -90,6 +96,7 @@ namespace Dasiy_Weather
             }
 
             return $"{baseAPI}{weather}lat={location.lat}&lon={location.lon}&units={metericORimperial}&appid={APIKeyPart}";
+         
         }
 
         public string createURL(string city)
@@ -115,6 +122,7 @@ namespace Dasiy_Weather
             else
             {
                 savedWeather = await GetLocationWeather(URL);
+                iconAPIcall = $"https://openweathermap.org/img/wn/{savedWeather.weather[0].icon}@2x.png";
                 return savedWeather.ToString();
             }
         }
