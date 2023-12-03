@@ -55,7 +55,7 @@ public partial class Search : ContentPage
 
     protected override async void OnAppearing()
     {
-        string favorWeather = await service.displayFav();
+        string favorWeather = await service.displayFav("");
         favWeather.Text = $"{service.savedWeather.name} {service.savedWeather.sys.country} \n{favorWeather}";
         searchIcon.Source = service.IconAPICall;
 

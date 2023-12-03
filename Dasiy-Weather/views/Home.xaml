@@ -14,17 +14,25 @@
             Style="{DynamicResource LablePrimary}"
             />
 
-            <Label 
-        x:Name="output"
-        Text=""
-        VerticalOptions="Center" 
-        HorizontalOptions="Center" 
-        Style="{DynamicResource LablePrimary}"
-        />
+        <Label 
+            Text="Temperature"
+            VerticalOptions="Center" 
+            HorizontalOptions="Center" 
+            Style="{DynamicResource LablePrimary}"
+            />
+        
+        <Label 
+            x:Name="output"
+            Text=""
+            VerticalOptions="Center" 
+            HorizontalOptions="Center" 
+            Style="{DynamicResource LablePrimary}"
+            />
 
         <HorizontalStackLayout
             x:Name="tempDisplay"
             WidthRequest="200"
+            MaximumHeightRequest="50"
             BackgroundColor="AliceBlue"
             >
             <Label WidthRequest="1"
@@ -55,13 +63,13 @@
 
         </HorizontalStackLayout>
 
-        <ContentPage>
+        <!--<ContentPage>
             <StackLayout>
                 <Grid x:Name="TemperatureGrid">
 
                 </Grid>
             </StackLayout>
-        </ContentPage>
+        </ContentPage>-->
 
         <Image
             x:Name="homeIcon"

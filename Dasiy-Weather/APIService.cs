@@ -60,6 +60,8 @@ namespace Dasiy_Weather
 
         string APIKeyPart = "3114e2f726350fe2d43b0c6913e03751";
 
+        public string iconBig = "@2x";
+
         string iconAPIcall = "https://openweathermap.org/img/wn/10d@2x.png";
 
         public string IconAPICall { get => iconAPIcall; set { } }
@@ -70,6 +72,13 @@ namespace Dasiy_Weather
 
         public LocationWeather savedWeather;
 
+        /// <summary>
+        /// Gets the weather for given location
+        /// </summary>
+        /// <param name="URL"> the url with latatude and longatude to make the api call </param>
+        /// <returns>
+        /// a weather data object for location asked for.
+        /// </returns>
         public async Task<LocationWeather> GetLocationWeather (string URL)
         {                      
             string responceString = await getResponce(URL);
@@ -112,7 +121,7 @@ namespace Dasiy_Weather
             return await response.Content.ReadAsStringAsync();
         }
 
-        public async Task<string> displayFav()
+        public async Task<string> displayFav(string iconSize)
         {
             string URL = Preferences.Default.Get("fav", "");
             if (URL == "")
@@ -122,7 +131,7 @@ namespace Dasiy_Weather
             else
             {
                 savedWeather = await GetLocationWeather(URL);
-                iconAPIcall = $"https://openweathermap.org/img/wn/{savedWeather.weather[0].icon}@2x.png";
+                iconAPIcall = $"https://openweathermap.org/img/wn/{savedWeather.weather[0].icon}{iconSize}.png";
                 return savedWeather.ToString();
             }
         }

@@ -80,7 +80,7 @@ namespace Dasiy_Weather
 
         public override string ToString()
         {
-            return String.Format($" Tempture Min: {main.temp_min}, Current: {main.temp}, Max: {main.temp_max}");
+            return String.Format($" Min: {main.temp_min}, Current: {main.temp}, Max: {main.temp_max}");
 
 
             //[$"{temp}", $"{feels_like}", $"{temp_min}", $"{temp_max}"]
