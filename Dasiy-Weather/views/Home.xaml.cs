@@ -7,11 +7,12 @@ public partial class Home : ContentPage
     private int temperatureGridLength { get; set; }
     private Border minTemp = new();
 
-    float offset;
-    float unit;
+    float offset = 5;
+    float unit = 200;
     float lowerBounds;
-    float tempBounds;
     float upperBounds;
+    float rangeBound;
+    float tempBounds;
     float segment;
     float minPadding;
     float tempPadding;
@@ -30,29 +31,9 @@ public partial class Home : ContentPage
         //    TemperatureGrid.ColumnDefinitions.Add(column);
         // }
 
-        offset = 5;
-        unit = 200;
-        lowerBounds = service.savedWeather.main.temp_min - offset;
-        tempBounds = service.savedWeather.main.temp;
-        upperBounds = service.savedWeather.main.temp_max + offset;
-        segment = (upperBounds - lowerBounds) / unit;
-        minPadding = offset * segment;
-        tempPadding = tempBounds * segment - minPadding;
-        maxPadding = service.savedWeather.main.temp_max * segment - minPadding;
+        
     }
 
-    private void setUpVisulation() 
-    {
-        float unit = 200;
-        float offset = 5;
-        float lowerBounds = service.savedWeather.main.temp_min - offset;
-        float tempBounds = service.savedWeather.main.temp;
-        float upperBounds = service.savedWeather.main.temp_max + offset;
-        float segment = (upperBounds - lowerBounds) / unit;
-        float minPadding = offset * segment;
-        float tempPadding = tempBounds * segment - minPadding;
-        float maxPadding = service.savedWeather.main.temp_max * segment - minPadding;
-    }
 
     protected override async void OnAppearing()
     {
@@ -60,10 +41,19 @@ public partial class Home : ContentPage
         output.Text = await service.displayFav(service.iconBig);
         outputCity.Text = $"{service.savedWeather.name} {service.savedWeather.sys.country}";
         homeIcon.Source = service.IconAPICall;
-        double unit = 200;
-        double minPadding = 4 * (service.savedWeather.main.temp_min);
-        double tempPadding = (4 * (service.savedWeather.main.temp)) - minPadding;
-        double maxPadding = (4 * (service.savedWeather.main.temp_max)) - minPadding - tempPadding;
+        //double unit = 200;
+        //double minPadding = 4 * (service.savedWeather.main.temp_min);
+        //double tempPadding = (4 * (service.savedWeather.main.temp)) - minPadding;
+        //double maxPadding = (4 * (service.savedWeather.main.temp_max)) - minPadding - tempPadding;
+        lowerBounds = service.savedWeather.main.temp_min - offset;
+        upperBounds = service.savedWeather.main.temp_max + offset;
+        rangeBound = upperBounds - lowerBounds;
+        tempBounds = service.savedWeather.main.temp - lowerBounds;
+        segment = unit / rangeBound;
+        minPadding = offset * segment;
+        tempPadding = (service.savedWeather.main.temp - service.savedWeather.main.temp_min ) * segment ;
+        maxPadding = (service.savedWeather.main.temp_max - service.savedWeather.main.temp) * segment ;
+
         tempDisplay.WidthRequest = unit;
         min.WidthRequest = minPadding;
         temp.WidthRequest = tempPadding;
@@ -82,5 +72,17 @@ public partial class Home : ContentPage
     //}
 }
 
+    //private void setUpVisulation() 
+    //{
+    //    float unit = 200;
+    //    float offset = 5;
+    //    float lowerBounds = service.savedWeather.main.temp_min - offset;
+    //    float tempBounds = service.savedWeather.main.temp;
+    //    float upperBounds = service.savedWeather.main.temp_max + offset;
+    //    float segment = (upperBounds - lowerBounds) / unit;
+    //    float minPadding = offset * segment;
+    //    float tempPadding = tempBounds * segment - minPadding;
+    //    float maxPadding = service.savedWeather.main.temp_max * segment - minPadding;
+    //}
 
 

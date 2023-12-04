@@ -23,10 +23,7 @@ namespace Dasiy_Weather
     //https://openweathermap.org/img/wn/10d@2x.png
     public class APIService 
     {
-        public class Locations
-        {
-
-        }
+        
         public class Location
         {
             public string name { get; set; }
