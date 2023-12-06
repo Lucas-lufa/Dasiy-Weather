@@ -30,7 +30,6 @@ public partial class Home : ContentPage
         //    var column = new ColumnDefinition(WidthRequest = temperatureGridLength / 50);
         //    TemperatureGrid.ColumnDefinitions.Add(column);
         // }
-
         
     }
 
@@ -39,6 +38,8 @@ public partial class Home : ContentPage
     {
         //base.OnAppearing();
         output.Text = await service.displayFav(service.iconBig);
+        
+        if (service.savedWeather != null) { 
         outputCity.Text = $"{service.savedWeather.name} {service.savedWeather.sys.country}";
         homeIcon.Source = service.IconAPICall;
         //double unit = 200;
@@ -58,6 +59,8 @@ public partial class Home : ContentPage
         min.WidthRequest = minPadding;
         temp.WidthRequest = tempPadding;
         max.WidthRequest = maxPadding;
+        }
+
     }
 
     //public void SetCell(int index, Border tag)

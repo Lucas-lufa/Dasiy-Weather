@@ -42,8 +42,7 @@ namespace Dasiy_Weather
 
             public override string ToString()
             {
-                return String.Format($" Tempture: {temp}, Feels Like: {feels_like}, Min: {temp_min}, Max: {temp_max}");
-
+                return String.Format($" Min: {temp_min}, Current: {temp}, Max: {temp_max}");
                 
                 //[$"{temp}", $"{feels_like}", $"{temp_min}", $"{temp_max}"]
             }
@@ -80,7 +79,7 @@ namespace Dasiy_Weather
 
         public override string ToString()
         {
-            return String.Format($" Min: {main.temp_min}, Current: {main.temp}, Max: {main.temp_max}");
+            return String.Format($"{name}, {sys.country}, Min: {main.temp_min}, Current: {main.temp}, Max: {main.temp_max}");
 
 
             //[$"{temp}", $"{feels_like}", $"{temp_min}", $"{temp_max}"]
