@@ -1,7 +1,20 @@
 ﻿Q1 – Name two operating systems used in mobile devices and their respective native languages.
 (Bullet Points)
+
+sailfish https://sailfishos.org/
+https://docs.sailfishos.org/ 
+front end Qt 5, QT Quick2, Waylands.
+logic c++ and python are fully supported.
+
+ubuntu touch https://ubuntu-touch.io/
+https://docs.ubports.com/en/latest/
+front Qt framework (I assume 5 as well)
+c++, Python, Go, Rust or even Javascript for your backend.
+
 Q2 – Discuss the impact of hardware on mobile development including limitations and benefits. 
 (Paragraph)
+
+
 Q3 – Discuss how inputs constrain user interface design and the development process when 
 compared with desktop and web-based devices, highlighting considerations and how these 
 constraints are overcome. (Paragraph)
