@@ -86,6 +86,7 @@ namespace Dasiy_Weather
 
         public async Task<List<Location>> GetLocation(string city)
         {
+            if (city == "") { city = " "; }
             string responceString = await getResponce(createURL(city));
             await Console.Out.WriteLineAsync(responceString);
 
